@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OfferSweep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="5" width="20" height="14" rx="3" stroke="#d4af37" stroke-width="2"/>
+          <line x1="2" y1="10" x2="22" y2="10" stroke="#d4af37" stroke-width="2"/>
+          <circle cx="7" cy="15" r="1.5" fill="#d4af37"/>
+          <path d="M14 15H18" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="title-desc">
+          <h1>OfferSweep</h1>
+          <span class="sub-title">Rewards Loader</span>
+        </div>
+      </div>
+      <div class="status-indicator">
+        <span class="status-dot" id="status-dot"></span>
+        <span class="status-text" id="status-badge">Inactive</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      
+      <!-- Page warning when not on Chase Offers page -->
+      <div class="chase-warning-banner" id="chase-warning">
+        <div class="warning-icon">⚠️</div>
+        <div class="warning-text">
+          <p class="warning-title">Chase portal not detected</p>
+          <p class="warning-subtitle">Please open your credit card page to start.</p>
+        </div>
+        <button class="btn btn-accent-gold" id="btn-open-chase">
+          Open Card Portal
+        </button>
+      </div>
+
+      <!-- Stats Grid -->
+      <section class="stats-section">
+        <div class="stats-card">
+          <div class="stat-item">
+            <span class="stat-label">Processed Offers</span>
+            <div class="stat-value-container">
+              <span class="stat-value" id="stat-processed">0</span>
+              <span class="stat-divider">/</span>
+              <span class="stat-total" id="stat-total">0</span>
+            </div>
+          </div>
+          <div class="stat-item wide">
+            <span class="stat-label">Current Status</span>
+            <span class="stat-status-detail" id="status-detail">Waiting for activation</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progress-bar" style="width: 0%"></div>
+        </div>
+      </section>
+
+      <!-- Action Area -->
+      <section class="action-section">
+        <button class="btn btn-primary-gold" id="btn-toggle-automation">
+          Start Auto-Adding
+        </button>
+      </section>
+
+      <!-- Card Selector Section -->
+      <section class="settings-section" id="card-selector-section" style="display: none;">
+        <h2 class="section-title">Select Credit Card</h2>
+        <div class="setting-item">
+          <select class="select-dropdown" id="card-selector">
+            <option value="">-- Choose Card Account --</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Delay Settings -->
+      <section class="settings-section">
+        <h2 class="section-title">Speed Settings</h2>
+        
+        <div class="setting-item">
+          <div class="setting-labels">
+            <label for="slider-min-delay">Min Delay</label>
+            <span class="badge" id="badge-min-delay">100ms</span>
+          </div>
+          <input type="range" class="slider" id="slider-min-delay" min="100" max="2000" step="50" value="100">
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-labels">
+            <label for="slider-max-delay">Max Delay</label>
+            <span class="badge" id="badge-max-delay">300ms</span>
+          </div>
+          <input type="range" class="slider" id="slider-max-delay" min="100" max="5000" step="100" value="300">
+        </div>
+      </section>
+
+      <!-- Terminal Console Logs -->
+      <section class="logs-section">
+        <div class="logs-header">
+          <h2 class="section-title">Console Terminal</h2>
+          <button class="btn-text" id="btn-clear-logs" title="Clear console output">Clear Logs</button>
+        </div>
+        <div class="terminal-logs" id="terminal-logs">
+          <div class="log-line system">[System] Console initialized. Ready.</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span>OfferSweep Extension v1.0.0</span>
+      <span class="footer-dot">•</span>
+      <span>Safe, Local & Private</span>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

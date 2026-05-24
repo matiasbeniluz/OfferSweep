@@ -1,0 +1,107 @@
+/* Chase Offers Auto-Adder - Injected Styling */
+
+/* Glow and pulse animation for the card currently being clicked */
+.offerTileGridItemContainer.ag-active-card {
+  position: relative;
+  outline: 3px solid #d4af37 !important;
+  outline-offset: 4px;
+  border-radius: 8px !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6) !important;
+  transform: scale(1.03) !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  z-index: 10000 !important;
+  animation: ag-gold-pulse 1.5s infinite ease-in-out;
+}
+
+/* Dim already processed cards to show progress */
+.offerTileGridItemContainer.ag-processed {
+  opacity: 0.55 !important;
+  filter: grayscale(40%) !important;
+  transition: opacity 0.4s ease !important;
+}
+
+@keyframes ag-gold-pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    outline-color: rgba(212, 175, 55, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+    outline-color: rgba(212, 175, 55, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    outline-color: rgba(212, 175, 55, 0.7);
+  }
+}
+
+/* Premium In-Page Floating Toast Status Overlay */
+.chase-adder-toast {
+  position: fixed !important;
+  top: 24px !important;
+  right: 24px !important;
+  width: 280px !important;
+  background: rgba(10, 30, 63, 0.88) !important;
+  backdrop-filter: blur(12px) -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  border-left: 4px solid #d4af37 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25) !important;
+  padding: 14px 16px !important;
+  color: #ffffff !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  z-index: 2147483647 !important; /* Top of the world */
+  animation: ag-toast-slide-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none !important;
+}
+
+.chase-adder-toast.success {
+  border-left-color: #4caf50 !important;
+  border-color: rgba(76, 175, 80, 0.4) !important;
+}
+
+.chase-adder-toast-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  color: #d4af37 !important;
+  margin-bottom: 4px !important;
+}
+
+.chase-adder-toast.success .chase-adder-toast-title {
+  color: #4caf50 !important;
+}
+
+.chase-adder-toast-body {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  color: #e3e8ee !important;
+  font-weight: 500 !important;
+}
+
+.chase-adder-toast.fade-out {
+  animation: ag-toast-slide-out 0.40s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes ag-toast-slide-in {
+  from {
+    transform: translateX(120%) translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ag-toast-slide-out {
+  from {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%) translateY(0);
+    opacity: 0;
+  }
+}
